@@ -43,6 +43,7 @@
 
 ## docs
 - improve instructions for MF and SIRIUS installation?
+- mention potential conflicts with dplyr::filter()
 
 
 ## features
