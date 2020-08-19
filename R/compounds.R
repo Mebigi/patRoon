@@ -694,10 +694,8 @@ setMethod("plotSpecHash", "compounds", function(obj, index, groupName, MSPeakLis
                                                 ylim = NULL, ...)
 {
     compTable <- compoundTable(obj)[[groupName]]
-    if (is.null(compTable) || nrow(compTable) == 0)
-        return(NULL)
-
-    return(makeHash(compTable[index, ], annotatedPeakList(obj, index, groupName, MSPeakLists, formulas),
+    cRow <- if (is.null(compTable) || nrow(compTable) == 0) NULL else compTable[index, ]
+    return(makeHash(cRow, annotatedPeakList(obj, index, groupName, MSPeakLists, formulas),
                     plotStruct, title, useGGPlot2, xlim, ylim, ...))
 })
 
